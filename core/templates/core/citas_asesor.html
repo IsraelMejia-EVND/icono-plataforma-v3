@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Citas asignadas | ICONO</title>
+</head>
+<body>
+    <h1>Citas asignadas</h1>
+    <p><a href="{% url 'core:cuenta' %}">Volver a Mi cuenta</a></p>
+
+    <ul>
+        {% for cita in citas %}
+            <li>
+                {{ cita.fecha_hora|date:"d/m/Y H:i" }} ·
+                {{ cita.cliente.username }} · {{ cita.get_estado_display }}
+
+                {% if cita.estado == "pendiente" %}
+                    <form method="post" action="{% url 'core:responder_cita' cita.pk %}">
+                        {% csrf_token %}
+                        {% if cita.fecha_hora > ahora %}
+                            <button type="submit" name="accion" value="confirmar">Confirmar</button>
+                        {% endif %}
+                        <button type="submit" name="accion" value="rechazar">Rechazar</button>
+                    </form>
+                {% elif cita.estado == "confirmada" and cita.fecha_hora <= ahora %}
+                    <form method="post" action="{% url 'core:responder_cita' cita.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" name="accion" value="completar">Marcar como completada</button>
+                    </form>
+                {% endif %}
+                {% if cita.estado == "confirmada" %}
+                    <p><a href="{% url 'core:perfil_cliente_asesor' cita.pk %}">Ver perfil de estilo</a></p>
+                {% endif %}               
+            </li>
+        {% empty %}
+            <li>Todavía no tienes citas asignadas.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

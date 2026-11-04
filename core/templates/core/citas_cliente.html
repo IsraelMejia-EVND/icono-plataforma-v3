@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Mis citas | ICONO</title>
+</head>
+<body>
+    <h1>Mis citas</h1>
+    <p><a href="{% url 'core:cuenta' %}">Volver a Mi cuenta</a></p>
+
+    <h2>Solicitar asesoría</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Solicitar cita</button>
+    </form>
+
+    <h2>Mis solicitudes</h2>
+    <ul>
+        {% for cita in citas %}
+            <li>
+                {{ cita.fecha_hora|date:"d/m/Y H:i" }} ·
+                {{ cita.asesor.username }} · {{ cita.get_estado_display }}
+
+                {% if cita.fecha_hora > ahora %}
+                    {% if cita.estado == "pendiente" or cita.estado == "confirmada" %}
+                        <form method="post" action="{% url 'core:cancelar_cita' cita.pk %}">
+                            {% csrf_token %}
+                            <button type="submit">Cancelar cita</button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Todavía no tienes citas.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

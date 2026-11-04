@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ICONO | Asesoría de imagen</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Navegación principal">
+            <a href="{% url 'core:catalogo' %}">Explorar outfits</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'core:cuenta' %}">Mi cuenta</a>
+            {% else %}
+                <a href="{% url 'core:login' %}">Iniciar sesión</a>
+                <a href="{% url 'core:registro' %}">Crear cuenta</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h1>ICONO</h1>
+        <p>Explora combinaciones de prendas y encuentra ideas para tu estilo.</p>
+        <p>Con tu cuenta puedes guardar tus outfits favoritos y solicitar una asesoría de imagen.</p>
+    </main>
+</body>
+</html>

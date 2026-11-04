@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<title>Explorar outfits | ICONO</title>
+<h1>Explorar outfits</h1>
+
+<ul>
+    {% for outfit in outfits %}
+        <li>
+            <a href="{% url 'core:detalle_outfit' outfit.pk %}">{{ outfit.nombre }}</a>
+            · {{ outfit.tendencia.nombre }}
+        </li>
+    {% empty %}
+        <li>Todavía no hay outfits publicados.</li>
+    {% endfor %}
+</ul>
+</html>

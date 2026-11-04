@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<title>{{ outfit.nombre }} | ICONO</title>
+<p><a href="{% url 'core:catalogo' %}">Volver al catálogo</a></p>
+<h1>{{ outfit.nombre }}</h1>
+<p>{{ outfit.tendencia.nombre }}</p>
+<p>{{ outfit.descripcion }}</p>
+
+{% if es_cliente %}
+    <form method="post" action="{% url 'core:cambiar_favorito' outfit.pk %}">
+        {% csrf_token %}
+        {% if es_favorito %}
+            <button type="submit" name="accion" value="quitar">Quitar de favoritos</button>
+        {% else %}
+            <button type="submit" name="accion" value="guardar">Guardar en favoritos</button>
+        {% endif %}
+    </form>
+{% endif %}
+
+<h2>Prendas del outfit</h2>
+<ul>
+    {% for prenda in prendas %}
+        <li>
+            {{ prenda.nombre }}
+            {% if prenda.enlace_externo %}
+                · <a href="{{ prenda.enlace_externo }}">Buscar en tienda externa</a>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>Todavía no hay prendas asociadas.</li>
+    {% endfor %}
+</ul>
+<h2>Comentarios</h2>
+
+{% for comentario in comentarios %}
+    <article>
+        <h3>{{ comentario.usuario.username }} · {{ comentario.calificacion }}/5</h3>
+        <p>{{ comentario.texto }}</p>
+
+        {% if es_cliente and comentario.usuario_id == request.user.pk %}
+            <form method="post" action="{% url 'core:eliminar_comentario' outfit.pk %}">
+                {% csrf_token %}
+                <button type="submit">Eliminar mi comentario</button>
+            </form>
+        {% endif %}
+    </article>
+{% empty %}
+    <p>Todavía no hay comentarios.</p>
+{% endfor %}
+
+{% if comentario_form %}
+    <h3>Deja tu comentario</h3>
+    <form method="post" action="{% url 'core:detalle_outfit' outfit.pk %}">
+        {% csrf_token %}
+        {{ comentario_form.as_p }}
+        <button type="submit">Publicar comentario</button>
+    </form>
+{% endif %}
+</html>

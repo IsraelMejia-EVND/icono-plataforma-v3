@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<title>Iniciar sesión | ICONO</title>
+<h1>Iniciar sesión en ICONO</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit">Entrar</button>
+</form>
+<p><a href="{% url 'core:registro' %}">Crear cuenta</a></p>
+</html>

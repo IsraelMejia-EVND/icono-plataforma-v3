@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<title>Mi cuenta | ICONO</title>
+<h1>Mi cuenta</h1>
+<p>Bienvenido a ICONO, {{ request.user.username }}.</p>
+<p><a href="{% url 'core:inicio' %}">Volver al inicio</a></p>
+<form method="post" action="{% url 'core:logout' %}">
+    {% csrf_token %}
+    <button type="submit">Cerrar sesión</button>
+</form>
+{% if es_cliente %}
+    <p><a href="{% url 'core:perfil_estilo' %}">Editar mi perfil de estilo</a></p>
+    <p><a href="{% url 'core:citas_cliente' %}">Mis citas</a></p>
+{% endif %}
+{% if es_asesor %}
+    <p><a href="{% url 'core:citas_asesor' %}">Ver citas asignadas</a></p>
+{% endif %}
+<h2>Mis favoritos</h2>
+<ul>
+    {% for favorito in favoritos %}
+        <li>
+            <a href="{% url 'core:detalle_outfit' favorito.outfit_id %}">
+                {{ favorito.outfit.nombre }}
+            </a>
+        </li>
+    {% empty %}
+        <li>Todavía no tienes outfits guardados.</li>
+    {% endfor %}
+</ul>
+<p><a href="{% url 'core:catalogo' %}">Explorar outfits</a></p>
+</html>
