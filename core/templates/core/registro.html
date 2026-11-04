@@ -1,12 +1,10 @@
-<!doctype html>
-<html lang="es">
-<meta charset="utf-8">
-<title>Crear cuenta | ICONO</title>
-<h1>Crear cuenta en ICONO</h1>
+{% extends 'core/base.html' %}
+{% load static i18n %}
+{% block title %}Crear cuenta | ICONO{% endblock %}
+{% block contenido %}<div class="card"><div class="card-body p-4"><h1 class="page-title mb-4">{% translate "Crear cuenta en ICONO" %}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Crear cuenta</button>
+    <button class="btn btn-primary" type="submit">{% translate "Crear cuenta" %}</button>
 </form>
-<p><a href="{% url 'core:login' %}">Ya tengo una cuenta</a></p>
-</html>
+<p><a href="{% url 'core:login' %}">{% translate "Ya tengo una cuenta" %}</a></p></div></div>{% endblock %}

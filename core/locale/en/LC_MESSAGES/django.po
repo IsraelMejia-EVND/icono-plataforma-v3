@@ -1,0 +1,267 @@
+#
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Inicio"
+msgstr "Home"
+
+msgid "Mi cuenta"
+msgstr "My account"
+
+msgid "Explorar outfits"
+msgstr "Explore outfits"
+
+msgid "Asesoría de imagen"
+msgstr "Image consulting"
+
+msgid "Mi perfil de estilo"
+msgstr "My style profile"
+
+msgid "Mis citas"
+msgstr "My appointments"
+
+msgid "Citas asignadas"
+msgstr "Assigned appointments"
+
+msgid "Administración"
+msgstr "Administration"
+
+msgid "Idioma"
+msgstr "Language"
+
+msgid "Cambiar idioma"
+msgstr "Change language"
+
+msgid "Cambiar tema"
+msgstr "Toggle theme"
+
+msgid "Iniciar sesión"
+msgstr "Sign in"
+
+msgid "Crear cuenta"
+msgstr "Create account"
+
+msgid "Cerrar sesión"
+msgstr "Sign out"
+
+msgid "TU ESTILO COMIENZA AQUÍ"
+msgstr "YOUR STYLE STARTS HERE"
+
+msgid "ESTILO · INSPIRACIÓN · IDENTIDAD"
+msgstr "STYLE · INSPIRATION · IDENTITY"
+
+msgid "BIENVENIDO A ICONO"
+msgstr "WELCOME TO ICONO"
+
+msgid "Un estilo tan único como tú."
+msgstr "A style as unique as you."
+
+msgid "Encuentra tu esencia. Hazla visible."
+msgstr "Find your essence. Make it visible."
+
+msgid ""
+"Descubre combinaciones que te inspiran y encuentra acompañamiento para "
+"construir tu propio estilo."
+msgstr ""
+"Discover looks that inspire you and guidance to build your personal style."
+
+msgid "Descubrir el catálogo"
+msgstr "Discover the collection"
+
+msgid "Inspiración de moda urbana"
+msgstr "Street style inspiration"
+
+msgid "Distintas formas de expresarte"
+msgstr "Different ways to express yourself"
+
+msgid "Inspiración editorial"
+msgstr "Editorial inspiration"
+
+msgid "Clásico con personalidad"
+msgstr "Classic with character"
+
+msgid "Detalles que hablan de ti"
+msgstr "Details that speak for you"
+
+msgid "Dale espacio a tu estilo"
+msgstr "Make room for your style"
+
+msgid ""
+"Guarda tus ideas favoritas, completa tu perfil y solicita una cita con un "
+"asesor."
+msgstr ""
+"Save your favorite ideas, complete your profile and book a consultation."
+
+msgid "Ir a mi cuenta"
+msgstr "Go to my account"
+
+msgid "Tu estilo comienza aquí."
+msgstr "Your style starts here."
+
+msgid "Ideas para vestir a tu manera."
+msgstr "Ideas for dressing your way."
+
+msgid "Navegación principal"
+msgstr "Main navigation"
+
+msgid "Saltar al contenido"
+msgstr "Skip to content"
+
+msgid "Bienvenido a ICONO,"
+msgstr "Welcome to ICONO,"
+
+msgid "Volver al inicio"
+msgstr "Back to home"
+
+msgid "Editar mi perfil de estilo"
+msgstr "Edit my style profile"
+
+msgid "Ver citas asignadas"
+msgstr "View assigned appointments"
+
+msgid "Mis favoritos"
+msgstr "My favorites"
+
+msgid "Todavía no tienes outfits guardados."
+msgstr "You have no saved outfits yet."
+
+msgid "Crear cuenta en ICONO"
+msgstr "Create your ICONO account"
+
+msgid "Ya tengo una cuenta"
+msgstr "I already have an account"
+
+msgid "Iniciar sesión en ICONO"
+msgstr "Sign in to ICONO"
+
+msgid "Entrar"
+msgstr "Sign in"
+
+msgid "Guardar perfil"
+msgstr "Save profile"
+
+msgid "Volver a Mi cuenta"
+msgstr "Back to my account"
+
+msgid "Solicitar asesoría"
+msgstr "Book a consultation"
+
+msgid "Solicitar cita"
+msgstr "Request appointment"
+
+msgid "Mis solicitudes"
+msgstr "My requests"
+
+msgid "Cancelar cita"
+msgstr "Cancel appointment"
+
+msgid "Todavía no tienes citas."
+msgstr "You have no appointments yet."
+
+msgid "Confirmar"
+msgstr "Confirm"
+
+msgid "Rechazar"
+msgstr "Decline"
+
+msgid "Marcar como completada"
+msgstr "Mark as completed"
+
+msgid "Ver perfil de estilo"
+msgstr "View style profile"
+
+msgid "Todavía no tienes citas asignadas."
+msgstr "You have no assigned appointments yet."
+
+msgid "Volver al catálogo"
+msgstr "Back to collection"
+
+msgid "Quitar de favoritos"
+msgstr "Remove from favorites"
+
+msgid "Guardar en favoritos"
+msgstr "Save to favorites"
+
+msgid "Prendas del outfit"
+msgstr "Items in this outfit"
+
+msgid "Buscar en tienda externa"
+msgstr "Visit external store"
+
+msgid "Todavía no hay prendas asociadas."
+msgstr "No items have been added yet."
+
+msgid "Comentarios"
+msgstr "Reviews"
+
+msgid "Eliminar mi comentario"
+msgstr "Delete my review"
+
+msgid "Todavía no hay comentarios."
+msgstr "No reviews yet."
+
+msgid "Deja tu comentario"
+msgstr "Leave a review"
+
+msgid "Publicar comentario"
+msgstr "Publish review"
+
+msgid "Todavía no hay outfits publicados."
+msgstr "No published outfits yet."
+
+msgid "El cliente todavía no ha guardado su perfil de estilo."
+msgstr "The client has not saved a style profile yet."
+
+msgid "Volver a Citas asignadas"
+msgstr "Back to assigned appointments"
+
+msgid "Tendencia preferida:"
+msgstr "Preferred trend:"
+
+msgid "Objetivo:"
+msgstr "Goal:"
+
+msgid "Perfil de estilo de"
+msgstr "Style profile of"
+
+msgid "Calificación (1 a 5)"
+msgstr "Rating (1 to 5)"
+
+msgid "Comentario"
+msgstr "Review"
+
+msgid "Tendencia preferida"
+msgstr "Preferred trend"
+
+msgid "¿Qué buscas en una asesoría?"
+msgstr "What are you looking for in a consultation?"
+
+msgid "Fecha y hora de la cita (Tijuana)"
+msgstr "Appointment date and time (Tijuana)"
+
+msgid "Elige una fecha y hora futuras."
+msgstr "Choose a future date and time."
+
+msgid "Pendiente"
+msgstr "Pending"
+
+msgid "Confirmada"
+msgstr "Confirmed"
+
+msgid "Cancelada"
+msgstr "Cancelled"
+
+msgid "Completada"
+msgstr "Completed"
+
+msgid "Asesor"
+msgstr "Advisor"
+
+msgid "Sin indicar"
+msgstr "Not specified"
+
+msgid "Ver outfit"
+msgstr "View outfit"
