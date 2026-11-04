@@ -1,27 +1,14 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ICONO | Asesoría de imagen</title>
-</head>
-<body>
-    <header>
-        <nav aria-label="Navegación principal">
-            <a href="{% url 'core:catalogo' %}">Explorar outfits</a>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'core:cuenta' %}">Mi cuenta</a>
-            {% else %}
-                <a href="{% url 'core:login' %}">Iniciar sesión</a>
-                <a href="{% url 'core:registro' %}">Crear cuenta</a>
-            {% endif %}
-        </nav>
-    </header>
-
-    <main>
-        <h1>ICONO</h1>
-        <p>Explora combinaciones de prendas y encuentra ideas para tu estilo.</p>
-        <p>Con tu cuenta puedes guardar tus outfits favoritos y solicitar una asesoría de imagen.</p>
-    </main>
-</body>
-</html>
+{% extends 'core/base.html' %}{% load static i18n %}
+{% block contenido %}
+<div class="page-heading"><div><p class="eyebrow">{% translate "BIENVENIDO A ICONO" %}</p><h1>{% translate "Un estilo tan único como tú." %}</h1></div><a class="btn btn-outline-primary" href="{% url 'core:catalogo' %}">{% translate "Explorar outfits" %} ↗</a></div>
+<section class="editorial-hero">
+<div class="hero-copy"><span class="eyebrow">ICONO / PERSONAL STYLE</span><h2 style="color: white;">{% translate "Encuentra tu esencia. Hazla visible." %}</h2><p>{% translate "Descubre combinaciones que te inspiran y encuentra acompañamiento para construir tu propio estilo." %}</p><a class="btn btn-light" href="{% url 'core:catalogo' %}">{% translate "Descubrir el catálogo" %} →</a><span class="hero-foot">{% translate "TU ESTILO COMIENZA AQUÍ" %}</span></div>
+<img src="{% static 'core/images/editorial.webp' %}" alt="{% translate 'Inspiración de moda urbana' %}">
+</section>
+<div class="section-heading"><h2>{% translate "Distintas formas de expresarte" %}</h2><span class="text-secondary">{% translate "Inspiración editorial" %}</span></div>
+<div class="editorial-grid">
+<a class="editorial-card" href="{% url 'core:catalogo' %}"><img src="{% static 'core/images/classic.webp' %}" alt="" loading="lazy"><div><small>01 / ICONO</small><h3>{% translate "Clásico con personalidad" %}</h3><span>{% translate "Explorar outfits" %} ↗</span></div></a>
+<a class="editorial-card" href="{% url 'core:catalogo' %}"><img src="{% static 'core/images/elegance.webp' %}" alt="" loading="lazy"><div><small>02 / ICONO</small><h3>{% translate "Detalles que hablan de ti" %}</h3><span>{% translate "Explorar outfits" %} ↗</span></div></a>
+<div class="service-card" id="servicios"><span class="service-symbol">✧</span><h3>{% translate "Dale espacio a tu estilo" %}</h3><p>{% translate "Guarda tus ideas favoritas, completa tu perfil y solicita una cita con un asesor." %}</p><a class="btn btn-primary" href="{% url 'core:cuenta' %}">{% translate "Ir a mi cuenta" %} →</a></div>
+</div>
+{% endblock %}

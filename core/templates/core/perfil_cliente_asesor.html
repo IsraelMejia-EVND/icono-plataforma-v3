@@ -1,19 +1,13 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Perfil de estilo del cliente | ICONO</title>
-</head>
-<body>
-    <h1>Perfil de estilo de {{ cita.cliente.username }}</h1>
+{% extends 'core/base.html' %}
+{% load static i18n %}
+{% block title %}Perfil de estilo del cliente | ICONO{% endblock %}
+{% block contenido %}<div class="card"><div class="card-body p-4"><h1 class="page-title mb-4">Perfil de estilo de {{ cita.cliente.username }}</h1>
 
     {% if perfil %}
         <p>Tendencia preferida: {{ perfil.tendencia_preferida|default_if_none:"Sin indicar" }}</p>
         <p>Objetivo: {{ perfil.objetivo|default:"Sin indicar" }}</p>
     {% else %}
-        <p>El cliente todavía no ha guardado su perfil de estilo.</p>
+        <p>{% translate "El cliente todavía no ha guardado su perfil de estilo." %}</p>
     {% endif %}
 
-    <p><a href="{% url 'core:citas_asesor' %}">Volver a Citas asignadas</a></p>
-</body>
-</html>
+    <p><a href="{% url 'core:citas_asesor' %}">{% translate "Volver a Citas asignadas" %}</a></p></div></div>{% endblock %}

@@ -1,13 +1,11 @@
-<!doctype html>
-<html lang="es">
-<meta charset="utf-8">
-<title>Iniciar sesión | ICONO</title>
-<h1>Iniciar sesión en ICONO</h1>
+{% extends 'core/base.html' %}
+{% load static i18n %}
+{% block title %}Iniciar sesión | ICONO{% endblock %}
+{% block contenido %}<div class="card"><div class="card-body p-4"><h1 class="page-title mb-4">{% translate "Iniciar sesión en ICONO" %}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit">Entrar</button>
+    <button class="btn btn-primary" type="submit">{% translate "Entrar" %}</button>
 </form>
-<p><a href="{% url 'core:registro' %}">Crear cuenta</a></p>
-</html>
+<p><a href="{% url 'core:registro' %}">{% translate "Crear cuenta" %}</a></p></div></div>{% endblock %}

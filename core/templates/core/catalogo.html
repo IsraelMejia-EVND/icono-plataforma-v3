@@ -1,17 +1,9 @@
-<!doctype html>
-<html lang="es">
-<meta charset="utf-8">
-<title>Explorar outfits | ICONO</title>
-<h1>Explorar outfits</h1>
-
-<ul>
-    {% for outfit in outfits %}
-        <li>
-            <a href="{% url 'core:detalle_outfit' outfit.pk %}">{{ outfit.nombre }}</a>
-            · {{ outfit.tendencia.nombre }}
-        </li>
-    {% empty %}
-        <li>Todavía no hay outfits publicados.</li>
-    {% endfor %}
-</ul>
-</html>
+{% extends 'core/base.html' %}{% load static i18n %}
+{% block contenido %}
+<div class="page-heading"><div><p class="eyebrow">ICONO / COLLECTION</p><h1>{% translate "Explorar outfits" %}</h1></div></div>
+<div class="row g-4">
+{% for outfit in outfits %}
+<div class="col-md-6 col-xl-4"><article class="card h-100"><div class="outfit-cover" aria-hidden="true"><svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M8 3 3 6l2 5 3-1v11h8V10l3 1 2-5-5-3c0 4-8 4-8 0Z"/></svg></div><div class="card-body"><span class="badge bg-primary-lt">{{ outfit.tendencia.nombre }}</span><h2 class="h2 mt-3">{{ outfit.nombre }}</h2><p class="text-secondary">{{ outfit.descripcion|truncatewords:25 }}</p><a class="btn btn-outline-primary" href="{% url 'core:detalle_outfit' outfit.pk %}">{% translate "Ver outfit" %} ↗</a></div></article></div>
+{% empty %}<div class="col-12"><div class="empty card p-5"><p class="empty-title">{% translate "Todavía no hay outfits publicados." %}</p></div></div>{% endfor %}
+</div>
+{% endblock %}

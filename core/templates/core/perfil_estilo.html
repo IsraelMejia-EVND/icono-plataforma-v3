@@ -1,16 +1,10 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Mi perfil de estilo | ICONO</title>
-</head>
-<body>
-    <h1>Mi perfil de estilo</h1>
+{% extends 'core/base.html' %}
+{% load static i18n %}
+{% block title %}Mi perfil de estilo | ICONO{% endblock %}
+{% block contenido %}<div class="card"><div class="card-body p-4"><h1 class="page-title mb-4">{% translate "Mi perfil de estilo" %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar perfil</button>
+        <button class="btn btn-primary" type="submit">{% translate "Guardar perfil" %}</button>
     </form>
-    <p><a href="{% url 'core:cuenta' %}">Volver a Mi cuenta</a></p>
-</body>
-</html>
+    <p><a href="{% url 'core:cuenta' %}">{% translate "Volver a Mi cuenta" %}</a></p></div></div>{% endblock %}

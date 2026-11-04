@@ -1,0 +1,51 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}" data-bs-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}ICONO{% endblock %}</title>
+<script>try { document.documentElement.dataset.bsTheme = localStorage.getItem('icono-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch(e) {}</script>
+<link rel="stylesheet" href="{% static 'core/tabler/tabler.min.css' %}">
+<link rel="stylesheet" href="{% static 'core/icono.css' %}">
+<script defer src="{% static 'core/icono.js' %}"></script>
+</head>
+<body>
+<a class="visually-hidden-focusable" href="#contenido">{% translate "Saltar al contenido" %}</a>
+<div class="icono-layout">
+<aside class="icono-sidebar">
+<a class="brand" href="{% url 'core:inicio' %}"><img src="{% static 'core/images/logo.webp' %}" alt="ICONO" width="172" height="43"></a>
+<p class="nav-caption">{% translate "TU ESTILO COMIENZA AQUÍ" %}</p>
+<nav aria-label="{% translate 'Navegación principal' %}">
+<a href="{% url 'core:inicio' %}"><span aria-hidden="true">⌂</span> {% translate "Inicio" %}</a>
+<a href="{% url 'core:catalogo' %}"><span aria-hidden="true">▦</span> {% translate "Explorar outfits" %}</a>
+<a href="{% url 'core:inicio' %}#servicios"><span aria-hidden="true">✧</span> {% translate "Asesoría de imagen" %}</a>
+{% if request.user.is_authenticated %}
+<a href="{% url 'core:cuenta' %}"><span aria-hidden="true">◎</span> {% translate "Mi cuenta" %}</a>
+{% for grupo in request.user.groups.all %}
+{% if grupo.name == "Cliente" %}
+<a href="{% url 'core:perfil_estilo' %}"><span aria-hidden="true">◇</span> {% translate "Mi perfil de estilo" %}</a>
+<a href="{% url 'core:citas_cliente' %}"><span aria-hidden="true">▤</span> {% translate "Mis citas" %}</a>
+{% elif grupo.name == "Asesor" %}
+<a href="{% url 'core:citas_asesor' %}"><span aria-hidden="true">▤</span> {% translate "Citas asignadas" %}</a>
+{% endif %}{% endfor %}
+{% if request.user.is_staff %}<a href="{% url 'admin:index' %}">{% translate "Administración" %}</a>{% endif %}
+{% endif %}
+</nav>
+<div class="sidebar-note"><span class="eyebrow">ICONO STUDIO</span><p>{% translate "Ideas para vestir a tu manera." %}</p></div>
+</aside>
+<div class="icono-main">
+<header class="icono-header">
+<span class="eyebrow">{% translate "ESTILO · INSPIRACIÓN · IDENTIDAD" %}</span>
+<div class="header-actions">
+<form method="post" action="{% url 'set_language' %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+<label class="visually-hidden" for="language">{% translate "Idioma" %}</label>
+<select name="language" id="language" class="form-select form-select-sm"><option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option><option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option></select><button class="btn btn-sm" type="submit">↵<span class="visually-hidden">{% translate "Cambiar idioma" %}</span></button></form>
+<button id="theme-toggle" type="button" class="btn btn-icon" aria-label="{% translate 'Cambiar tema' %}" title="{% translate 'Cambiar tema' %}">◐</button>
+{% if request.user.is_authenticated %}<a class="avatar avatar-sm" href="{% url 'core:cuenta' %}" title="{{ request.user.username }}">{{ request.user.username|first|upper }}</a>
+{% else %}<a class="btn btn-primary btn-sm" href="{% url 'core:login' %}">{% translate "Iniciar sesión" %}</a>{% endif %}
+</div></header>
+<main id="contenido" class="icono-content">{% block contenido %}{% endblock %}</main>
+<footer class="icono-footer">ICONO <span>{% translate "Tu estilo comienza aquí." %}</span></footer>
+</div></div>
+</body></html>
